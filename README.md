@@ -5,3 +5,8 @@ WebCTF_CheatSheet
 ```
 sudo nmap -p 80,443 -sV --script "http-server-header,http-cookie-flags,http-enum" -T4 --open -n [타겟 IP]
 ```
+ㄴ 열려있는 서비스 스캐닝
+
+```
+
+```
