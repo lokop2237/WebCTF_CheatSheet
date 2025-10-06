@@ -18,6 +18,8 @@ sudo nmap -p 80,443,8080,8000,8443 -sV --script "http-server-header,http-cookie-
 
 # 2. gobuster
 ```
+gobuster dir -u [https://example.com] -w /usr/share/dirbuster/wordlists/raft-small-directories.txt -x php --threads 50
+
 gobuster dir -u [https://example.com] -w ~/wordlists/shortlist.txt
 gobuster dir -u [https://example.com] -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,php3,html,txt
 ```
