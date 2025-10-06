@@ -25,4 +25,11 @@ gobuster dir -u [https://example.com] -w /usr/share/dirbuster/wordlists/director
 # 3. OWASP zap
 Automated Scan ㄱㄱ
 
+# 4. smb
+```
+# smb 공유목록 나열
+smbclient -L //[타켓 IP]/ -N
 
+# 특정 공유 접속
+smbclient //[타겟 IP]/[sharename] -U guest          # Password for [WORKGROUP\guest]: 엔터
+```
