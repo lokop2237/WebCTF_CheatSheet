@@ -96,15 +96,3 @@ __builtins__.__dict__['__IMPORT__'.lower()]('PTY'.lower()).__dict__['SPAWN'.lowe
 19. /var/log/wtmp, /var/log/utmp: 로그인 관련 정보(언제, 어디서 얼마나) 저장( 확인 명령어: last -f /var/log/wtmp)
 ```
 
-# 8. Log 분석
-```
-1. 접속 성공 로그 확인 (/var/log/wtmp)
-last [user name]   (= last f /var/log/wtmp)           # 최근 접속기록 출력
-last -t [YYYYMMDDhhmmss]                              # 특정날짜 이후 접속기록 출
-
-2. 접속 실패 로그 확인 (/var/log/btmp)
-last -f /var/log/btmp
-
-3. ssh, sudo, PAM 확인 (/var/log/secure)
-cat /var/log/secure* | grep Accepted | awk '{print $1, $2, $3, "\t", $9, "\t", $11, "\t", $14}' | sort | uniq
-```
