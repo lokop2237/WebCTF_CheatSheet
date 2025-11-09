@@ -39,7 +39,7 @@ feroxbuster -u [https://example.com] -w
 
 # 4. hydra
 ```
-# hydra (web_ip) http-get-form "(web_url):username=^USER^&password=^PASS^&(나머지 파라미터):(로그인 실패시 뜨는 메세지)" -L (userid dic.txt) -P (pass dic.txt) -V -f
+# hydra (web_ip) http-get-form "(web_url):username=^USER^&password=^PASS^&(나머지 파라미터):(로그인 실패시 뜨는 메세지)" -L (userid dic.txt) -P (/usr/share/wordlists/rockyou.txt) -V -f
 # hydra -L [username.txt] -P [password.txt] -v -f
 // -v : 결과 출력, -f : 결과 나오는 즉시 종료
 ```
